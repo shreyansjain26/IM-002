@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImgDownloader" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SlF-Kg-2gG">
+                                <rect key="frame" x="25" y="105" width="324" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-em-h4o">
+                                <rect key="frame" x="150" y="164" width="74" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="rLx-b1-M22"/>
+                                </constraints>
+                                <state key="normal" title="Download">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downloadButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MEg-0e-p0W"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vUQ-bw-np3">
+                                <rect key="frame" x="25" y="299" width="324" height="360"/>
+                                <color key="backgroundColor" red="0.76691344895287961" green="0.76691344895287961" blue="0.76691344895287961" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N3g-kj-4rc">
+                                <rect key="frame" x="25" y="254" width="324" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGT-L9-bzE">
+                                <rect key="frame" x="25" y="260" width="61" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="dmA-71-lYu"/>
+                                    <constraint firstAttribute="width" constant="61" id="nO4-hK-MEu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="leading" secondItem="N3g-kj-4rc" secondAttribute="leading" id="49j-6k-Jgw"/>
+                            <constraint firstItem="N3g-kj-4rc" firstAttribute="top" secondItem="xDY-em-h4o" secondAttribute="bottom" constant="60" id="9Bh-8k-zBZ"/>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9oS-cu-hlk"/>
+                            <constraint firstItem="oGT-L9-bzE" firstAttribute="leading" secondItem="vUQ-bw-np3" secondAttribute="leading" id="Acm-ki-CK1"/>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="centerX" secondItem="xDY-em-h4o" secondAttribute="centerX" id="Djc-lN-iMr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vUQ-bw-np3" secondAttribute="bottom" constant="8" symbolic="YES" id="YGO-Cb-gdJ"/>
+                            <constraint firstItem="xDY-em-h4o" firstAttribute="top" secondItem="SlF-Kg-2gG" secondAttribute="bottom" constant="29" id="ZCZ-cF-nn9"/>
+                            <constraint firstItem="oGT-L9-bzE" firstAttribute="top" secondItem="N3g-kj-4rc" secondAttribute="bottom" constant="4" id="ZWa-dV-aqV"/>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="cKO-qB-M1G"/>
+                            <constraint firstItem="N3g-kj-4rc" firstAttribute="leading" secondItem="oGT-L9-bzE" secondAttribute="leading" id="hU4-d0-cnf"/>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="9" id="ka5-yk-IhT"/>
+                            <constraint firstItem="vUQ-bw-np3" firstAttribute="top" secondItem="oGT-L9-bzE" secondAttribute="bottom" constant="8" symbolic="YES" id="kxM-Ks-OBv"/>
+                            <constraint firstItem="N3g-kj-4rc" firstAttribute="trailing" secondItem="vUQ-bw-np3" secondAttribute="trailing" id="liq-XG-MKF"/>
+                            <constraint firstItem="SlF-Kg-2gG" firstAttribute="trailing" secondItem="N3g-kj-4rc" secondAttribute="trailing" id="rVX-ya-fUq"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="downloadButton" destination="xDY-em-h4o" id="3gy-R9-WuX"/>
+                        <outlet property="imageView" destination="vUQ-bw-np3" id="9rP-Rr-7Vq"/>
+                        <outlet property="progressBar" destination="N3g-kj-4rc" id="WFz-ET-BEI"/>
+                        <outlet property="progressPercentage" destination="oGT-L9-bzE" id="CWh-t3-xJW"/>
+                        <outlet property="urlBox" destination="SlF-Kg-2gG" id="a6d-mo-WbC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-332.5" y="562.5"/>
         </scene>
     </scenes>
 </document>
